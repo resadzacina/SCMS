@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
+      <HintPath>..\1188.SCMS\Libs\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data.Entity" />
