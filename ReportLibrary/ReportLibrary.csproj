@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45DCEC9A-B73B-45F3-B199-DA974C511B6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReportLibrary</RootNamespace>
+    <AssemblyName>ReportLibrary</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=5.1.11.713, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Reporting.Adomd, Version=5.1.11.713, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCatalog\Members Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportCatalog\Members Report.Designer.cs">
+      <DependentUpon>Members Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCatalog\ReportCatalog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportCatalog\ReportCatalog.Designer.cs">
+      <DependentUpon>ReportCatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCatalog\TicketReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportCatalog\TicketReport.Designer.cs">
+      <DependentUpon>TicketReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportCatalog\Visitor Report.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportCatalog\Visitor Report.Designer.cs">
+      <DependentUpon>Visitor Report.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportCatalog\Members Report.resx">
+      <DependentUpon>Members Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCatalog\ReportCatalog.resx">
+      <DependentUpon>ReportCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCatalog\TicketReport.resx">
+      <DependentUpon>TicketReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportCatalog\Visitor Report.resx">
+      <DependentUpon>Visitor Report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

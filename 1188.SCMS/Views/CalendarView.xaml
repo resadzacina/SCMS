@@ -1,0 +1,73 @@
+﻿<navigation:Page x:Class="_1188.SCMS.Views.CalendarView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1024" d:DesignHeight="768"
+           Title="SCMS | Calendar / Events" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="EventsView" Filter="EventsListFilter" Source="{Binding EventList}" />
+        <CollectionViewSource x:Key="TeamsCollection" Filter="TeamListFilter" Source="{Binding TeamList}" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" IsHitTestVisible="{Binding IsLoggedIn, Mode=TwoWay}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="10,6,10,0" CornerRadius="2" Background="#7DC827">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Calendar Events" FontSize="16" FontWeight="Bold" Padding="10"></TextBlock>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Margin="5" Padding="5" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border Background="LightGray" Padding="5" Grid.Column="0" CornerRadius="10" Margin="0,10,0,5">
+                    <StackPanel HorizontalAlignment="Left" Name="CalendarPane" VerticalAlignment="Top" Orientation="Vertical" Width="288">
+                        <TextBlock Text="Calendar" Margin="10,5,5,5" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" />
+                        <sdk:Calendar Name="calEvent" 
+                                         Width="273" 
+                                         Height="225" 
+                                         DisplayDate="{Binding CurrentDate, Mode=TwoWay}"
+                                         SelectedDate="{Binding SelectedCalDate, Mode=TwoWay}"
+                                         SelectionMode="MultipleRange" 
+                                         IsTodayHighlighted="True" 
+                                         SelectedDatesChanged="calEvent_SelectedDatesChanged" />
+                    </StackPanel>
+                </Border>
+                <Border Background="LightGray" Padding="5" Grid.Column="1" CornerRadius="10" Margin="20,10,0,5">
+                    <StackPanel HorizontalAlignment="Stretch" Name="EventsPane" VerticalAlignment="Top" Orientation="Vertical" >
+
+                        <TextBlock Text="Events" Margin="5,5,5,0" FontSize="14" FontWeight="Bold"  />
+                        <sdk:DataGrid AutoGenerateColumns="False" Height="200" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource EventsView}}" VerticalAlignment="Top" Name="EventsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected"  Margin="0,5,0,0" SelectedItem="{Binding Path=SelectedEvent, Mode=TwoWay}">
+                            <sdk:DataGrid.Columns>
+                                <sdk:DataGridTextColumn x:Name="NameColumn" Binding="{Binding Path=Name}" Header="Name" Width="SizeToHeader"  MinWidth="150" />
+                                <sdk:DataGridTextColumn x:Name="DescriptionColumn" Binding="{Binding Path=Description}" Header="Description" Width="SizeToHeader"  MinWidth="150" />
+                                <sdk:DataGridTextColumn x:Name="DateStartColumn" Binding="{Binding Path=DateStart}" Header="Date Start" Width="SizeToHeader" MinWidth="100" />
+                                <sdk:DataGridTextColumn x:Name="DateEndColumn" Binding="{Binding Path=DateEnd}" Header="Date End" IsReadOnly="True" Width="SizeToHeader"  MinWidth="100" />
+                                <sdk:DataGridTextColumn x:Name="IsPostponedColumn" Binding="{Binding Path=IsPostponed}" Header="Is Postponed" Width="SizeToHeader"  MinWidth="50" />
+                                <sdk:DataGridTextColumn x:Name="IsCancelled" Binding="{Binding Path=IsCancelled}" Header="Is Cancelled" Width="SizeToHeader"  MinWidth="50" />
+                                </sdk:DataGrid.Columns>
+                        </sdk:DataGrid>
+                        <TextBlock Text="Teams connected to events" Margin="5,10,5,5" FontSize="14" FontWeight="Bold" />
+                        <sdk:DataGrid AutoGenerateColumns="False" Height="100" HorizontalAlignment="Stretch" ItemsSource="{Binding Source={StaticResource TeamsCollection}}" VerticalAlignment="Top" Name="TeamsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" SelectedItem="{Binding Path=SelectedTeam, Mode=TwoWay}">
+                            <sdk:DataGrid.Columns>
+                                <sdk:DataGridTextColumn x:Name="TeamNameColumn" Binding="{Binding Path=Name}" Header="Name" Width="SizeToHeader"  MinWidth="150" />
+                            </sdk:DataGrid.Columns>
+                        </sdk:DataGrid>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="New Event" Height="41" Name="NewEventButton" Width="102" Margin="0 20" Click="NewEventButton_Click" HorizontalAlignment="Left" />
+                            <Button Content="Edit Event" Height="41" Margin="5,0,0,0" Name="EditEventButton" Width="102" Click="EditEventButton_Click" HorizontalAlignment="Left" Visibility="{Binding IsEditVisible, Mode=TwoWay}" />
+                            <Button Content="Delete Event" Height="41" Margin="5,0,0,0" Name="DeleteEventButton" Width="102" Command="{Binding Path=DeleteEventCommand}" Click="DeleteEventButton_Click" Visibility="{Binding IsEditVisible, Mode=TwoWay}" HorizontalAlignment="Left" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</navigation:Page>

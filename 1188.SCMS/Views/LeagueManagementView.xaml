@@ -1,0 +1,37 @@
+﻿<navigation:Page x:Class="_1188.SCMS.Views.LeagueManagementView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="SCMS | League Management" xmlns:sdk="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data">
+    <Grid x:Name="LayoutRoot" IsHitTestVisible="{Binding IsLoggedIn, Mode=TwoWay}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="10,6,10,0" CornerRadius="2" Background="#7DC827">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="League Management" FontSize="16" FontWeight="Bold" Padding="10"></TextBlock>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="5" Grid.Row="1" Background="LightGray" BorderThickness="2" Padding="5" Margin="10" >
+            <StackPanel Margin="10" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
+                    <Button Content="New League" Height="41" Name="NewLeagueButton" Width="102" Click="NewLeagueButtonClick"  />
+                    <Button Content="Edit League" Height="41" Margin="5,0,0,0" Name="EditLeagueButton" Width="102"  Command="{Binding Path=EditCommand}" />
+                    <Button Content="Delete League" Height="41" Margin="5,0,0,0" Name="DeleteLeagueButton" Width="102" Command="{Binding Path=DeleteLeagueCommand}" />
+                </StackPanel>
+                <sdk:DataGrid AutoGenerateColumns="False" Height="341" HorizontalAlignment="Stretch" ItemsSource="{Binding LeagueList}" Name="leagueDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" SelectedItem="{Binding SelectedLeague, Mode=TwoWay}">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn x:Name="iDColumn" Binding="{Binding Path=ID, Mode=OneWay}" Header="ID" IsReadOnly="True" Width="SizeToHeader" Visibility="Collapsed" />
+                        <sdk:DataGridTextColumn x:Name="nameColumn" Binding="{Binding Path=Name, Mode=TwoWay}" Header="Name" MinWidth="220" Width="SizeToHeader" />
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</navigation:Page>

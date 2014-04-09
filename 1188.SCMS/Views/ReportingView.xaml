@@ -1,0 +1,27 @@
+﻿<navigation:Page x:Class="_1188.SCMS.Views.ReportingView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" d:DesignWidth="640" d:DesignHeight="480"
+           Title="SCMS | Reporting" >
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="10,6,10,0" CornerRadius="2" Background="#7DC827">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Reporting" FontSize="16" FontWeight="Bold" Padding="10"></TextBlock>
+            </StackPanel>
+        </Border>
+        <Border Background="LightGray" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" CornerRadius="10" Margin="20">
+            <StackPanel Orientation="Vertical" >
+                <Button Content="Members Report" Height="64" HorizontalAlignment="Left" Margin="10,10,0,0" Name="button1" Click="button1_Click" VerticalAlignment="Top" Width="163" />
+            <Button Content="Visitors Report" Height="64" HorizontalAlignment="Left" Margin="10,10,0,0" Name="button2" Click="button2_Click" VerticalAlignment="Top" Width="163" />
+            <Button Content="Tickets Report" Height="64" HorizontalAlignment="Left" Margin="10,10,0,0" Name="button3" Click="button3_Click" VerticalAlignment="Top" Width="163" />
+        </StackPanel>
+            </Border>
+    </Grid>
+</navigation:Page>

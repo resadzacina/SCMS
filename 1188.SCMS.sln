@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1188.SCMS", "1188.SCMS\1188.SCMS.csproj", "{1667827A-1123-4905-B974-D84E5C16C5FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B54929C-1709-421C-8FE4-6B118C8B9B7D} = {9B54929C-1709-421C-8FE4-6B118C8B9B7D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1188.SCMS.Web", "1188.SCMS.Web\1188.SCMS.Web.csproj", "{9B54929C-1709-421C-8FE4-6B118C8B9B7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1667827A-1123-4905-B974-D84E5C16C5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1667827A-1123-4905-B974-D84E5C16C5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1667827A-1123-4905-B974-D84E5C16C5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1667827A-1123-4905-B974-D84E5C16C5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B54929C-1709-421C-8FE4-6B118C8B9B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B54929C-1709-421C-8FE4-6B118C8B9B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B54929C-1709-421C-8FE4-6B118C8B9B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B54929C-1709-421C-8FE4-6B118C8B9B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

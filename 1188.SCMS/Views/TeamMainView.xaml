@@ -1,0 +1,20 @@
+﻿<navigation:Page x:Class="_1188.SCMS.Views.TeamMainView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="SCMS | Team Management Options">
+    <Grid x:Name="LayoutRoot">
+<Border Background="LightGray" Padding="20" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Margin="20">
+            <StackPanel Orientation="Vertical" >
+                <TextBlock Text="Team Management options" HorizontalAlignment="Center" Margin="10,10,10,20" FontSize="14" FontWeight="Bold"></TextBlock>
+                <Button Content="Team Data" Height="64" Name="TeamManagementButton" Width="163"  Command="{Binding Path=TeamManagementClickCommand}" Click="TeamManagementClick" />
+                <Button Content="Assign Team to League" Height="64" Name="LeagueAssignmentButton" Width="163" Margin="0,5,0,0"  Command="{Binding Path=LeagueAssignmentClickCommand}" Click="LeagueAssignmentButtonClick" />
+                <Button Content="Assign Member to Team " Height="64" Name="MemberTeamButton" Width="163" Margin="0,5,0,0"  Command="{Binding Path=MemberTeamClickCommand}" Click="MemberTeamButtonClick" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</navigation:Page>

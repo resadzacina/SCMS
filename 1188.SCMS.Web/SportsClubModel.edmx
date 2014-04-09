@@ -1,0 +1,1435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SportsTeamModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SportsTeamModelStoreContainer">
+          <EntitySet Name="aspnet_Roles" EntityType="SportsTeamModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="SportsTeamModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Building" EntityType="SportsTeamModel.Store.Building" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contract" EntityType="SportsTeamModel.Store.Contract" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="SportsTeamModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Event" EntityType="SportsTeamModel.Store.Event" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventTeam" EntityType="SportsTeamModel.Store.EventTeam" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventTicket" EntityType="SportsTeamModel.Store.EventTicket" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="League" EntityType="SportsTeamModel.Store.League" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Member" EntityType="SportsTeamModel.Store.Member" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MemberTeam" EntityType="SportsTeamModel.Store.MemberTeam" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Message" EntityType="SportsTeamModel.Store.Message" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PaymentMethod" EntityType="SportsTeamModel.Store.PaymentMethod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SportsSociety" EntityType="SportsTeamModel.Store.SportsSociety" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Team" EntityType="SportsTeamModel.Store.Team" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TeamLeague" EntityType="SportsTeamModel.Store.TeamLeague" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ticket" EntityType="SportsTeamModel.Store.Ticket" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketType" EntityType="SportsTeamModel.Store.TicketType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VisitorCard" EntityType="SportsTeamModel.Store.VisitorCard" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Building_SportsSociety" Association="SportsTeamModel.Store.FK_Building_SportsSociety">
+            <End Role="SportsSociety" EntitySet="SportsSociety" />
+            <End Role="Building" EntitySet="Building" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_aspnet_Users" Association="SportsTeamModel.Store.FK_Contract_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_member" Association="SportsTeamModel.Store.FK_Country_member">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTeam_Event" Association="SportsTeamModel.Store.FK_EventTeam_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventTeam" EntitySet="EventTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTeam_Team" Association="SportsTeamModel.Store.FK_EventTeam_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="EventTeam" EntitySet="EventTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTicket_Event" Association="SportsTeamModel.Store.FK_EventTicket_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventTicket" EntitySet="EventTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTicket_Ticket" Association="SportsTeamModel.Store.FK_EventTicket_Ticket">
+            <End Role="Ticket" EntitySet="Ticket" />
+            <End Role="EventTicket" EntitySet="EventTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_aspnet_Users" Association="SportsTeamModel.Store.FK_Member_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberTeam_Member" Association="SportsTeamModel.Store.FK_MemberTeam_Member">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="MemberTeam" EntitySet="MemberTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberTeam_Team" Association="SportsTeamModel.Store.FK_MemberTeam_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="MemberTeam" EntitySet="MemberTeam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_SportsSociety" Association="SportsTeamModel.Store.FK_Team_SportsSociety">
+            <End Role="SportsSociety" EntitySet="SportsSociety" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamLeague_League" Association="SportsTeamModel.Store.FK_TeamLeague_League">
+            <End Role="League" EntitySet="League" />
+            <End Role="TeamLeague" EntitySet="TeamLeague" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamLeague_Team" Association="SportsTeamModel.Store.FK_TeamLeague_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamLeague" EntitySet="TeamLeague" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_aspnet_Users" Association="SportsTeamModel.Store.FK_Ticket_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_PaymentMethod" Association="SportsTeamModel.Store.FK_Ticket_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_TicketType" Association="SportsTeamModel.Store.FK_Ticket_TicketType">
+            <End Role="TicketType" EntitySet="TicketType" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisitorCard_aspnet_Users" Association="SportsTeamModel.Store.FK_VisitorCard_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="VisitorCard" EntitySet="VisitorCard" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SportSocietyID" Type="int" Nullable="false" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="SocietyIsOwner" Type="bit" />
+          <Property Name="EstimatedValue" Type="decimal" Scale="2" />
+          <Property Name="MonthlyCost" Type="decimal" Scale="2" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContractType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ExpiralDate" Type="date" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="TransferClause" Type="bit" />
+          <Property Name="TransferAmount" Type="decimal" Scale="2" />
+          <Property Name="OneYearClausePlayer" Type="bit" />
+          <Property Name="OneYearClauseTeam" Type="bit" />
+          <Property Name="Apartment" Type="bit" />
+          <Property Name="Car" Type="bit" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="nvarchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="IsPostponed" Type="bit" Nullable="false" />
+          <Property Name="IsCancelled" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="AvailableTickets" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventTeam">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EventTicket">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="TicketID" Type="int" Nullable="false" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nickname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthdate" Type="date" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="PostalCode" Type="int" />
+          <Property Name="MobilePhone" Type="char" MaxLength="11" />
+          <Property Name="HomePhone" Type="char" MaxLength="11" />
+          <Property Name="WorkPhone" Type="char" MaxLength="11" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="MemberTeam">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Name="MemberID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="To" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+          <Property Name="Body" Type="nvarchar" MaxLength="500" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Method" Type="varchar" Nullable="false" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="SportsSociety">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SportSocietyID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="70" />
+          <Property Name="SportType" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlayersCount" Type="int" />
+          <Property Name="YearFounded" Type="smallint" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="char" MaxLength="11" />
+          <Property Name="Website" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamLeague">
+          <Key>
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="LeagueID" />
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="LeagueID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IsAlreadyChecked" Type="bit" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TicketTypeID" Type="int" />
+          <Property Name="SeatNumber" Type="smallint" />
+          <Property Name="PaymentMethodID" Type="int" />
+        </EntityType>
+        <EntityType Name="TicketType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="VisitorCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="IsAllowedAccess" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Building_SportsSociety">
+          <End Role="SportsSociety" Type="SportsTeamModel.Store.SportsSociety" Multiplicity="1" />
+          <End Role="Building" Type="SportsTeamModel.Store.Building" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SportsSociety">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Building">
+              <PropertyRef Name="SportSocietyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_aspnet_Users">
+          <End Role="aspnet_Users" Type="SportsTeamModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Contract" Type="SportsTeamModel.Store.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_member">
+          <End Role="Country" Type="SportsTeamModel.Store.Country" Multiplicity="0..1" />
+          <End Role="Member" Type="SportsTeamModel.Store.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTeam_Event">
+          <End Role="Event" Type="SportsTeamModel.Store.Event" Multiplicity="1" />
+          <End Role="EventTeam" Type="SportsTeamModel.Store.EventTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTeam">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTeam_Team">
+          <End Role="Team" Type="SportsTeamModel.Store.Team" Multiplicity="1" />
+          <End Role="EventTeam" Type="SportsTeamModel.Store.EventTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTeam">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTicket_Event">
+          <End Role="Event" Type="SportsTeamModel.Store.Event" Multiplicity="1" />
+          <End Role="EventTicket" Type="SportsTeamModel.Store.EventTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTicket">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTicket_Ticket">
+          <End Role="Ticket" Type="SportsTeamModel.Store.Ticket" Multiplicity="1" />
+          <End Role="EventTicket" Type="SportsTeamModel.Store.EventTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTicket">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_aspnet_Users">
+          <End Role="aspnet_Users" Type="SportsTeamModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Member" Type="SportsTeamModel.Store.Member" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberTeam_Member">
+          <End Role="Member" Type="SportsTeamModel.Store.Member" Multiplicity="1" />
+          <End Role="MemberTeam" Type="SportsTeamModel.Store.MemberTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MemberTeam">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberTeam_Team">
+          <End Role="Team" Type="SportsTeamModel.Store.Team" Multiplicity="1" />
+          <End Role="MemberTeam" Type="SportsTeamModel.Store.MemberTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MemberTeam">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_SportsSociety">
+          <End Role="SportsSociety" Type="SportsTeamModel.Store.SportsSociety" Multiplicity="1" />
+          <End Role="Team" Type="SportsTeamModel.Store.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SportsSociety">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="SportSocietyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamLeague_League">
+          <End Role="League" Type="SportsTeamModel.Store.League" Multiplicity="1" />
+          <End Role="TeamLeague" Type="SportsTeamModel.Store.TeamLeague" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="League">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamLeague">
+              <PropertyRef Name="LeagueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamLeague_Team">
+          <End Role="Team" Type="SportsTeamModel.Store.Team" Multiplicity="1" />
+          <End Role="TeamLeague" Type="SportsTeamModel.Store.TeamLeague" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamLeague">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_aspnet_Users">
+          <End Role="aspnet_Users" Type="SportsTeamModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Ticket" Type="SportsTeamModel.Store.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_PaymentMethod">
+          <End Role="PaymentMethod" Type="SportsTeamModel.Store.PaymentMethod" Multiplicity="0..1" />
+          <End Role="Ticket" Type="SportsTeamModel.Store.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_TicketType">
+          <End Role="TicketType" Type="SportsTeamModel.Store.TicketType" Multiplicity="0..1" />
+          <End Role="Ticket" Type="SportsTeamModel.Store.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="TicketTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisitorCard_aspnet_Users">
+          <End Role="aspnet_Users" Type="SportsTeamModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="VisitorCard" Type="SportsTeamModel.Store.VisitorCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="VisitorCard">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SportsTeamModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SportsTeamEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Roles" EntityType="SportsTeamModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_User" EntityType="SportsTeamModel.aspnet_User" />
+          <EntitySet Name="Buildings" EntityType="SportsTeamModel.Building" />
+          <EntitySet Name="Contracts" EntityType="SportsTeamModel.Contract" />
+          <EntitySet Name="Countries" EntityType="SportsTeamModel.Country" />
+          <EntitySet Name="Leagues" EntityType="SportsTeamModel.League" />
+          <EntitySet Name="PaymentMethods" EntityType="SportsTeamModel.PaymentMethod" />
+          <EntitySet Name="SportsSocieties" EntityType="SportsTeamModel.SportsSociety" />
+          <EntitySet Name="TeamLeagues" EntityType="SportsTeamModel.TeamLeague" />
+          <AssociationSet Name="FK_Contract_aspnet_Users" Association="SportsTeamModel.FK_Contract_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_User" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Building_SportsSociety" Association="SportsTeamModel.FK_Building_SportsSociety">
+            <End Role="SportsSociety" EntitySet="SportsSocieties" />
+            <End Role="Building" EntitySet="Buildings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamLeague_League" Association="SportsTeamModel.FK_TeamLeague_League">
+            <End Role="League" EntitySet="Leagues" />
+            <End Role="TeamLeague" EntitySet="TeamLeagues" />
+          </AssociationSet>
+          <EntitySet Name="Members" EntityType="SportsTeamModel.Member" />
+          <EntitySet Name="MemberTeams" EntityType="SportsTeamModel.MemberTeam" />
+          <AssociationSet Name="FK_Member_aspnet_Users" Association="SportsTeamModel.FK_Member_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_User" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_member" Association="SportsTeamModel.FK_Country_member">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberTeam_Member" Association="SportsTeamModel.FK_MemberTeam_Member">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="MemberTeam" EntitySet="MemberTeams" />
+          </AssociationSet>
+          <EntitySet Name="Messages" EntityType="SportsTeamModel.Message" />
+          <EntitySet Name="EventTeams" EntityType="SportsTeamModel.EventTeam" />
+          <EntitySet Name="Teams" EntityType="SportsTeamModel.Team" />
+          <AssociationSet Name="FK_EventTeam_Team" Association="SportsTeamModel.FK_EventTeam_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="EventTeam" EntitySet="EventTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MemberTeam_Team" Association="SportsTeamModel.FK_MemberTeam_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="MemberTeam" EntitySet="MemberTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_SportsSociety" Association="SportsTeamModel.FK_Team_SportsSociety">
+            <End Role="SportsSociety" EntitySet="SportsSocieties" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamLeague_Team" Association="SportsTeamModel.FK_TeamLeague_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="TeamLeague" EntitySet="TeamLeagues" />
+          </AssociationSet>
+          <EntitySet Name="TicketTypes" EntityType="SportsTeamModel.TicketType" />
+          <EntitySet Name="VisitorCards" EntityType="SportsTeamModel.VisitorCard" />
+          <AssociationSet Name="FK_VisitorCard_aspnet_Users" Association="SportsTeamModel.FK_VisitorCard_aspnet_Users">
+            <End Role="aspnet_User" EntitySet="aspnet_User" />
+            <End Role="VisitorCard" EntitySet="VisitorCards" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="SportsTeamModel.Event" />
+          <EntitySet Name="EventTickets" EntityType="SportsTeamModel.EventTicket" />
+          <EntitySet Name="Tickets" EntityType="SportsTeamModel.Ticket" />
+          <AssociationSet Name="FK_Ticket_aspnet_Users" Association="SportsTeamModel.FK_Ticket_aspnet_Users">
+            <End Role="aspnet_User" EntitySet="aspnet_User" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTeam_Event" Association="SportsTeamModel.FK_EventTeam_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="EventTeam" EntitySet="EventTeams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTicket_Event" Association="SportsTeamModel.FK_EventTicket_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="EventTicket" EntitySet="EventTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTicket_Ticket" Association="SportsTeamModel.FK_EventTicket_Ticket">
+            <End Role="Ticket" EntitySet="Tickets" />
+            <End Role="EventTicket" EntitySet="EventTickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_PaymentMethod" Association="SportsTeamModel.FK_Ticket_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_TicketType" Association="SportsTeamModel.FK_Ticket_TicketType">
+            <End Role="TicketType" EntitySet="TicketTypes" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aspnet_User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+          <NavigationProperty Name="Contracts" Relationship="SportsTeamModel.FK_Contract_aspnet_Users" FromRole="aspnet_Users" ToRole="Contract" />
+          <NavigationProperty Name="Member" Relationship="SportsTeamModel.FK_Member_aspnet_Users" FromRole="aspnet_Users" ToRole="Member" />
+          <NavigationProperty Name="VisitorCards" Relationship="SportsTeamModel.FK_VisitorCard_aspnet_Users" FromRole="aspnet_User" ToRole="VisitorCard" />
+          <NavigationProperty Name="Tickets" Relationship="SportsTeamModel.FK_Ticket_aspnet_Users" FromRole="aspnet_User" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SportSocietyID" Nullable="false" />
+          <Property Type="Int32" Name="Capacity" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="SocietyIsOwner" />
+          <Property Type="Decimal" Name="EstimatedValue" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="MonthlyCost" Precision="18" Scale="2" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SportsSociety" Relationship="SportsTeamModel.FK_Building_SportsSociety" FromRole="Building" ToRole="SportsSociety" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="ContractType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ExpiralDate" Nullable="false" />
+          <Property Type="Decimal" Name="Salary" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="TransferClause" />
+          <Property Type="Decimal" Name="TransferAmount" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="OneYearClausePlayer" />
+          <Property Type="Boolean" Name="OneYearClauseTeam" />
+          <Property Type="Boolean" Name="Apartment" />
+          <Property Type="Boolean" Name="Car" />
+          <NavigationProperty Name="aspnet_Users" Relationship="SportsTeamModel.FK_Contract_aspnet_Users" FromRole="Contract" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CountryName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Members" Relationship="SportsTeamModel.FK_Country_member" FromRole="Country" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="League">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TeamLeagues" Relationship="SportsTeamModel.FK_TeamLeague_League" FromRole="League" ToRole="TeamLeague" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Method" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tickets" Relationship="SportsTeamModel.FK_Ticket_PaymentMethod" FromRole="PaymentMethod" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="SportsSociety">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Buildings" Relationship="SportsTeamModel.FK_Building_SportsSociety" FromRole="SportsSociety" ToRole="Building" />
+          <NavigationProperty Name="Teams" Relationship="SportsTeamModel.FK_Team_SportsSociety" FromRole="SportsSociety" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="TeamLeague">
+          <Key>
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="LeagueID" />
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Type="Int32" Name="TeamID" Nullable="false" />
+          <Property Type="Int32" Name="LeagueID" Nullable="false" />
+          <Property Type="Int16" Name="Year" Nullable="false" />
+          <NavigationProperty Name="League" Relationship="SportsTeamModel.FK_TeamLeague_League" FromRole="TeamLeague" ToRole="League" />
+          <NavigationProperty Name="Team" Relationship="SportsTeamModel.FK_TeamLeague_Team" FromRole="TeamLeague" ToRole="Team" />
+        </EntityType>
+        <Association Name="FK_Contract_aspnet_Users">
+          <End Type="SportsTeamModel.aspnet_User" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="SportsTeamModel.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Building_SportsSociety">
+          <End Type="SportsTeamModel.SportsSociety" Role="SportsSociety" Multiplicity="1" />
+          <End Type="SportsTeamModel.Building" Role="Building" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SportsSociety">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Building">
+              <PropertyRef Name="SportSocietyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamLeague_League">
+          <End Type="SportsTeamModel.League" Role="League" Multiplicity="1" />
+          <End Type="SportsTeamModel.TeamLeague" Role="TeamLeague" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="League">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamLeague">
+              <PropertyRef Name="LeagueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nickname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Birthdate" />
+          <Property Type="String" Name="Gender" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Nationality" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comments" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address1" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="Int32" Name="PostalCode" />
+          <Property Type="String" Name="MobilePhone" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="HomePhone" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="WorkPhone" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Mail" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="Photo" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="SportsTeamModel.FK_Member_aspnet_Users" FromRole="Member" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Country" Relationship="SportsTeamModel.FK_Country_member" FromRole="Member" ToRole="Country" />
+          <NavigationProperty Name="MemberTeams" Relationship="SportsTeamModel.FK_MemberTeam_Member" FromRole="Member" ToRole="MemberTeam" />
+        </EntityType>
+        <EntityType Name="MemberTeam">
+          <Key>
+            <PropertyRef Name="MemberID" />
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="Year" />
+          </Key>
+          <Property Type="Guid" Name="MemberID" Nullable="false" />
+          <Property Type="Int32" Name="TeamID" Nullable="false" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="SportsTeamModel.FK_MemberTeam_Member" FromRole="MemberTeam" ToRole="Member" />
+          <NavigationProperty Name="Team" Relationship="SportsTeamModel.FK_MemberTeam_Team" FromRole="MemberTeam" ToRole="Team" />
+        </EntityType>
+        <Association Name="FK_Member_aspnet_Users">
+          <End Type="SportsTeamModel.aspnet_User" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="SportsTeamModel.Member" Role="Member" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_member">
+          <End Type="SportsTeamModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="SportsTeamModel.Member" Role="Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberTeam_Member">
+          <End Type="SportsTeamModel.Member" Role="Member" Multiplicity="1" />
+          <End Type="SportsTeamModel.MemberTeam" Role="MemberTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="MemberTeam">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="From" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="To" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Subject" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Body" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TimeStamp" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventTeam">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Type="Int32" Name="EventID" Nullable="false" />
+          <Property Type="Int32" Name="TeamID" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Team" Relationship="SportsTeamModel.FK_EventTeam_Team" FromRole="EventTeam" ToRole="Team" />
+          <NavigationProperty Name="Event" Relationship="SportsTeamModel.FK_EventTeam_Event" FromRole="EventTeam" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SportSocietyID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SportType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PlayersCount" />
+          <Property Type="Int16" Name="YearFounded" />
+          <Property Type="String" Name="Address" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="Website" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="EventTeams" Relationship="SportsTeamModel.FK_EventTeam_Team" FromRole="Team" ToRole="EventTeam" />
+          <NavigationProperty Name="MemberTeams" Relationship="SportsTeamModel.FK_MemberTeam_Team" FromRole="Team" ToRole="MemberTeam" />
+          <NavigationProperty Name="SportsSociety" Relationship="SportsTeamModel.FK_Team_SportsSociety" FromRole="Team" ToRole="SportsSociety" />
+          <NavigationProperty Name="TeamLeagues" Relationship="SportsTeamModel.FK_TeamLeague_Team" FromRole="Team" ToRole="TeamLeague" />
+        </EntityType>
+        <Association Name="FK_EventTeam_Team">
+          <End Type="SportsTeamModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="SportsTeamModel.EventTeam" Role="EventTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTeam">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MemberTeam_Team">
+          <End Type="SportsTeamModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="SportsTeamModel.MemberTeam" Role="MemberTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MemberTeam">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_SportsSociety">
+          <End Type="SportsTeamModel.SportsSociety" Role="SportsSociety" Multiplicity="1" />
+          <End Type="SportsTeamModel.Team" Role="Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SportsSociety">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="SportSocietyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamLeague_Team">
+          <End Type="SportsTeamModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="SportsTeamModel.TeamLeague" Role="TeamLeague" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamLeague">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TicketType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="3" Scale="2" />
+          <NavigationProperty Name="Tickets" Relationship="SportsTeamModel.FK_Ticket_TicketType" FromRole="TicketType" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="VisitorCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" />
+          <Property Type="Boolean" Name="IsAllowedAccess" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="SportsTeamModel.FK_VisitorCard_aspnet_Users" FromRole="VisitorCard" ToRole="aspnet_User" />
+        </EntityType>
+        <Association Name="FK_VisitorCard_aspnet_Users">
+          <End Type="SportsTeamModel.aspnet_User" Role="aspnet_User" Multiplicity="1" />
+          <End Type="SportsTeamModel.VisitorCard" Role="VisitorCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="VisitorCard">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateStart" Nullable="false" />
+          <Property Type="DateTime" Name="DateEnd" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsPostponed" Nullable="false" />
+          <Property Type="Boolean" Name="IsCancelled" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Int32" Name="AvailableTickets" Nullable="false" />
+          <NavigationProperty Name="EventTeams" Relationship="SportsTeamModel.FK_EventTeam_Event" FromRole="Event" ToRole="EventTeam" />
+          <NavigationProperty Name="EventTickets" Relationship="SportsTeamModel.FK_EventTicket_Event" FromRole="Event" ToRole="EventTicket" />
+        </EntityType>
+        <EntityType Name="EventTicket">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TicketID" />
+          </Key>
+          <Property Type="Int32" Name="EventID" Nullable="false" />
+          <Property Type="Int32" Name="TicketID" Nullable="false" />
+          <Property Type="String" Name="Alias" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Event" Relationship="SportsTeamModel.FK_EventTicket_Event" FromRole="EventTicket" ToRole="Event" />
+          <NavigationProperty Name="Ticket" Relationship="SportsTeamModel.FK_EventTicket_Ticket" FromRole="EventTicket" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="IsAlreadyChecked" Nullable="false" />
+          <Property Type="Guid" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="TicketTypeID" />
+          <Property Type="Int16" Name="SeatNumber" />
+          <Property Type="Int32" Name="PaymentMethodID" />
+          <NavigationProperty Name="User" Relationship="SportsTeamModel.FK_Ticket_aspnet_Users" FromRole="Ticket" ToRole="aspnet_User" />
+          <NavigationProperty Name="EventTickets" Relationship="SportsTeamModel.FK_EventTicket_Ticket" FromRole="Ticket" ToRole="EventTicket" />
+          <NavigationProperty Name="PaymentMethod" Relationship="SportsTeamModel.FK_Ticket_PaymentMethod" FromRole="Ticket" ToRole="PaymentMethod" />
+          <NavigationProperty Name="TicketType" Relationship="SportsTeamModel.FK_Ticket_TicketType" FromRole="Ticket" ToRole="TicketType" />
+        </EntityType>
+        <Association Name="FK_Ticket_aspnet_Users">
+          <End Type="SportsTeamModel.aspnet_User" Role="aspnet_User" Multiplicity="1" />
+          <End Type="SportsTeamModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTeam_Event">
+          <End Type="SportsTeamModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="SportsTeamModel.EventTeam" Role="EventTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTeam">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTicket_Event">
+          <End Type="SportsTeamModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="SportsTeamModel.EventTicket" Role="EventTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTicket">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTicket_Ticket">
+          <End Type="SportsTeamModel.Ticket" Role="Ticket" Multiplicity="1" />
+          <End Type="SportsTeamModel.EventTicket" Role="EventTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTicket">
+              <PropertyRef Name="TicketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_PaymentMethod">
+          <End Type="SportsTeamModel.PaymentMethod" Role="PaymentMethod" Multiplicity="0..1" />
+          <End Type="SportsTeamModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="PaymentMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_TicketType">
+          <End Type="SportsTeamModel.TicketType" Role="TicketType" Multiplicity="0..1" />
+          <End Type="SportsTeamModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="TicketTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SportsTeamModelStoreContainer" CdmEntityContainer="SportsTeamEntities">
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="SportsTeamModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_User">
+            <EntityTypeMapping TypeName="SportsTeamModel.aspnet_User">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buildings">
+            <EntityTypeMapping TypeName="SportsTeamModel.Building">
+              <MappingFragment StoreEntitySet="Building">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="MonthlyCost" ColumnName="MonthlyCost" />
+                <ScalarProperty Name="EstimatedValue" ColumnName="EstimatedValue" />
+                <ScalarProperty Name="SocietyIsOwner" ColumnName="SocietyIsOwner" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="SportSocietyID" ColumnName="SportSocietyID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="SportsTeamModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="Car" ColumnName="Car" />
+                <ScalarProperty Name="Apartment" ColumnName="Apartment" />
+                <ScalarProperty Name="OneYearClauseTeam" ColumnName="OneYearClauseTeam" />
+                <ScalarProperty Name="OneYearClausePlayer" ColumnName="OneYearClausePlayer" />
+                <ScalarProperty Name="TransferAmount" ColumnName="TransferAmount" />
+                <ScalarProperty Name="TransferClause" ColumnName="TransferClause" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="ExpiralDate" ColumnName="ExpiralDate" />
+                <ScalarProperty Name="ContractType" ColumnName="ContractType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="SportsTeamModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leagues">
+            <EntityTypeMapping TypeName="SportsTeamModel.League">
+              <MappingFragment StoreEntitySet="League">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethods">
+            <EntityTypeMapping TypeName="SportsTeamModel.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethod">
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SportsSocieties">
+            <EntityTypeMapping TypeName="SportsTeamModel.SportsSociety">
+              <MappingFragment StoreEntitySet="SportsSociety">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamLeagues">
+            <EntityTypeMapping TypeName="SportsTeamModel.TeamLeague">
+              <MappingFragment StoreEntitySet="TeamLeague">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="LeagueID" ColumnName="LeagueID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="SportsTeamModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberTeams">
+            <EntityTypeMapping TypeName="SportsTeamModel.MemberTeam">
+              <MappingFragment StoreEntitySet="MemberTeam">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="SportsTeamModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTeams">
+            <EntityTypeMapping TypeName="SportsTeamModel.EventTeam">
+              <MappingFragment StoreEntitySet="EventTeam">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="SportsTeamModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="YearFounded" ColumnName="YearFounded" />
+                <ScalarProperty Name="PlayersCount" ColumnName="PlayersCount" />
+                <ScalarProperty Name="SportType" ColumnName="SportType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SportSocietyID" ColumnName="SportSocietyID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketTypes">
+            <EntityTypeMapping TypeName="SportsTeamModel.TicketType">
+              <MappingFragment StoreEntitySet="TicketType">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitorCards">
+            <EntityTypeMapping TypeName="SportsTeamModel.VisitorCard">
+              <MappingFragment StoreEntitySet="VisitorCard">
+                <ScalarProperty Name="IsAllowedAccess" ColumnName="IsAllowedAccess" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="SportsTeamModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="AvailableTickets" ColumnName="AvailableTickets" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsCancelled" ColumnName="IsCancelled" />
+                <ScalarProperty Name="IsPostponed" ColumnName="IsPostponed" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTickets">
+            <EntityTypeMapping TypeName="SportsTeamModel.EventTicket">
+              <MappingFragment StoreEntitySet="EventTicket">
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="SportsTeamModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+                <ScalarProperty Name="SeatNumber" ColumnName="SeatNumber" />
+                <ScalarProperty Name="TicketTypeID" ColumnName="TicketTypeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IsAlreadyChecked" ColumnName="IsAlreadyChecked" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SportsClubModel" ZoomLevel="72" DisplayType="true">
+        <EntityTypeShape EntityType="SportsTeamModel.aspnet_Roles" Width="2" PointX="6.125" PointY="19.125" Height="1.9802864583333353" />
+        <EntityTypeShape EntityType="SportsTeamModel.aspnet_User" Width="2.125" PointX="8.25" PointY="16.75" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="SportsTeamModel.Building" Width="2.125" PointX="18.25" PointY="20.5" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="SportsTeamModel.Contract" Width="2" PointX="11.75" PointY="16.25" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="SportsTeamModel.Country" Width="1.5" PointX="21" PointY="19.5" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SportsTeamModel.League" Width="1.5" PointX="14.875" PointY="18.125" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SportsTeamModel.PaymentMethod" Width="1.5" PointX="7.875" PointY="21.5" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="SportsTeamModel.SportsSociety" Width="1.5" PointX="16.125" PointY="21.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SportsTeamModel.TeamLeague" Width="1.5" PointX="17.5" PointY="17.875" Height="1.9802864583333388" />
+        <AssociationConnector Association="SportsTeamModel.FK_Contract_aspnet_Users" >
+          <ConnectorPoint PointX="10.375" PointY="18.1631982421875" />
+          <ConnectorPoint PointX="11.75" PointY="18.1631982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_Building_SportsSociety" >
+          <ConnectorPoint PointX="17.625" PointY="22.018992513020834" />
+          <ConnectorPoint PointX="17.854166666666668" PointY="22.018992513020834" />
+          <ConnectorPoint PointX="18.020833333333332" PointY="22.018992513020834" />
+          <ConnectorPoint PointX="18.25" PointY="22.018992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_TeamLeague_League" >
+          <ConnectorPoint PointX="16.375" PointY="18.922841796875" />
+          <ConnectorPoint PointX="17.5" PointY="18.922841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SportsTeamModel.Member" Width="1.5" PointX="21.125" PointY="25.5" Height="5.2494108072916674" />
+        <EntityTypeShape EntityType="SportsTeamModel.MemberTeam" Width="1.5" PointX="23.25" PointY="21.125" Height="1.9802864583333388" />
+        <AssociationConnector Association="SportsTeamModel.FK_Member_aspnet_Users" >
+          <ConnectorPoint PointX="10.375" PointY="18.945524147135419" />
+          <ConnectorPoint PointX="11.5" PointY="18.945524147135419" />
+          <ConnectorPoint PointX="11.5" PointY="20.105286458333339" />
+          <ConnectorPoint PointX="17.854166666666668" PointY="20.105286458333339" />
+          <ConnectorPoint PointX="18.020833333333332" PointY="20.105286458333339" />
+          <ConnectorPoint PointX="20.75" PointY="20.105286458333339" />
+          <ConnectorPoint PointX="20.75" PointY="21.345683593750003" />
+          <ConnectorPoint PointX="21.875" PointY="21.345683593750003" />
+          <ConnectorPoint PointX="21.875" PointY="25.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_Country_member" >
+          <ConnectorPoint PointX="21.8125" PointY="21.095683593750003" />
+          <ConnectorPoint PointX="21.8125" PointY="25.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_MemberTeam_Member" >
+          <ConnectorPoint PointX="21.875" PointY="25.5" />
+          <ConnectorPoint PointX="21.875" PointY="22.115143229166669" />
+          <ConnectorPoint PointX="23.25" PointY="22.115143229166669" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SportsTeamModel.Message" Width="1.5" PointX="13" PointY="20.375" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="SportsTeamModel.EventTeam" Width="1.5" PointX="23.625" PointY="26" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SportsTeamModel.Team" Width="1.5" PointX="18.375" PointY="25.125" Height="3.9033007812500031" />
+        <AssociationConnector Association="SportsTeamModel.FK_EventTeam_Team" >
+          <ConnectorPoint PointX="19.875" PointY="25.335938749999997" />
+          <ConnectorPoint PointX="21.729166666666668" PointY="25.335938749999997" />
+          <ConnectorPoint PointX="21.958333333333332" PointY="25.335938749999997" />
+          <ConnectorPoint PointX="24.375" PointY="25.335938749999997" />
+          <ConnectorPoint PointX="24.375" PointY="26" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_MemberTeam_Team" >
+          <ConnectorPoint PointX="19.875" PointY="25.171872500000006" />
+          <ConnectorPoint PointX="21.729166666666668" PointY="25.171872500000006" />
+          <ConnectorPoint PointX="21.958333333333332" PointY="25.171872500000006" />
+          <ConnectorPoint PointX="23.40625" PointY="25.171872500000006" />
+          <ConnectorPoint PointX="23.40625" PointY="23.105286458333339" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_Team_SportsSociety" >
+          <ConnectorPoint PointX="17.40625" PointY="22.912985026041667" />
+          <ConnectorPoint PointX="17.40625" PointY="27.828797200520835" />
+          <ConnectorPoint PointX="18.041666666666668" PointY="27.828797200520835" />
+          <ConnectorPoint PointX="18.208333333333332" PointY="27.828797200520835" />
+          <ConnectorPoint PointX="18.375" PointY="27.828797200520835" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_TeamLeague_Team" >
+          <ConnectorPoint PointX="18.375" PointY="26.481782604166671" />
+          <ConnectorPoint PointX="18.208333333333332" PointY="26.481782604166671" />
+          <ConnectorPoint PointX="18.041666666666668" PointY="26.481782604166671" />
+          <ConnectorPoint PointX="17.9375" PointY="26.481782604166671" />
+          <ConnectorPoint PointX="17.9375" PointY="19.855286458333339" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SportsTeamModel.TicketType" Width="1.5" PointX="13.375" PointY="27.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="SportsTeamModel.VisitorCard" Width="1.5" PointX="11.125" PointY="20.25" Height="2.1725878906250031" />
+        <AssociationConnector Association="SportsTeamModel.FK_VisitorCard_aspnet_Users" >
+          <ConnectorPoint PointX="10.375" PointY="19.761495768229171" />
+          <ConnectorPoint PointX="11.3125" PointY="19.761495768229171" />
+          <ConnectorPoint PointX="11.3125" PointY="20.25" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SportsTeamModel.Event" Width="1.5" PointX="15.625" PointY="29.625" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="SportsTeamModel.EventTicket" Width="1.5" PointX="17.875" PointY="30.125" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="SportsTeamModel.Ticket" Width="1.5" PointX="15.625" PointY="23.625" Height="2.9417936197916674" />
+        <AssociationConnector Association="SportsTeamModel.FK_Ticket_aspnet_Users" >
+          <ConnectorPoint PointX="9.90625" PointY="19.884095052083335" />
+          <ConnectorPoint PointX="9.90625" PointY="25.095896809895834" />
+          <ConnectorPoint PointX="15.625" PointY="25.095896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_EventTeam_Event" >
+          <ConnectorPoint PointX="17.125" PointY="32.463440755208339" />
+          <ConnectorPoint PointX="24.375" PointY="32.463440755208339" />
+          <ConnectorPoint PointX="24.375" PointY="27.980286458333335" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_EventTicket_Event" >
+          <ConnectorPoint PointX="17.125" PointY="31.115143229166669" />
+          <ConnectorPoint PointX="17.875" PointY="31.115143229166669" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_EventTicket_Ticket" >
+          <ConnectorPoint PointX="17.125" PointY="24.34375" />
+          <ConnectorPoint PointX="17.322916666666668" PointY="24.34375" />
+          <ConnectorPoint PointX="17.489583333333332" PointY="24.34375" />
+          <ConnectorPoint PointX="17.854166666666668" PointY="24.34375" />
+          <ConnectorPoint PointX="18.020833333333332" PointY="24.34375" />
+          <ConnectorPoint PointX="18.125" PointY="24.34375" />
+          <ConnectorPoint PointX="18.125" PointY="30.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_Ticket_PaymentMethod" >
+          <ConnectorPoint PointX="9.375" PointY="23.035584309895835" />
+          <ConnectorPoint PointX="9.8229166666666661" PointY="23.035584309895835" />
+          <ConnectorPoint PointX="9.9895833333333339" PointY="23.035584309895835" />
+          <ConnectorPoint PointX="15.84375" PointY="23.035584309895835" />
+          <ConnectorPoint PointX="15.84375" PointY="23.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="SportsTeamModel.FK_Ticket_TicketType" >
+          <ConnectorPoint PointX="14.125" PointY="27.75" />
+          <ConnectorPoint PointX="14.125" PointY="25.862597714843744" />
+          <ConnectorPoint PointX="15.625" PointY="25.862597714843744" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

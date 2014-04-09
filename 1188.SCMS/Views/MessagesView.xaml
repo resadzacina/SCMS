@@ -1,0 +1,150 @@
+﻿<navigation:Page x:Class="_1188.SCMS.Views.MessagesView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Messages" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls" xmlns:local="clr-namespace:_1188.SCMS.Controls">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+
+            <Storyboard x:Key="MailMessageSelected">
+                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00"
+								Storyboard.TargetName="newMessageCard"
+								Storyboard.TargetProperty="(UIElement.Visibility)">
+                    <DiscreteObjectKeyFrame KeyTime="00:00:0.01">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Collapsed</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00"
+								Storyboard.TargetName="mailMessageCard"
+								Storyboard.TargetProperty="(UIElement.Visibility)">
+                    <DiscreteObjectKeyFrame KeyTime="00:00:0.01">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+								Storyboard.TargetName="mailMessageCard"
+								Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                    <SplineDoubleKeyFrame KeyTime="00:00:0.3" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="NewMessageSelected">
+                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00"
+								Storyboard.TargetName="mailMessageCard"
+								Storyboard.TargetProperty="(UIElement.Visibility)">
+                    <DiscreteObjectKeyFrame KeyTime="00:00:0.01">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Collapsed</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00"
+								Storyboard.TargetName="newMessageCard"
+								Storyboard.TargetProperty="(UIElement.Visibility)">
+                    <DiscreteObjectKeyFrame KeyTime="00:00:0.01">
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                    </DiscreteObjectKeyFrame>
+                </ObjectAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00"
+								Storyboard.TargetName="newMessageCard"
+								Storyboard.TargetProperty="(UIElement.Opacity)">
+                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                    <SplineDoubleKeyFrame KeyTime="00:00:0.3" Value="1" />
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="10,6,10,0" CornerRadius="2" Background="LightSkyBlue">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Messaging" FontSize="16" FontWeight="Bold" Padding="10"></TextBlock>
+            </StackPanel>
+        </Border>
+        <Border telerikQuickStart:ThemeAwareBackgroundBehavior.IsEnabled="True" />
+        <Grid Grid.Row="1" Margin="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <telerik:RadOutlookBar x:Name="outlookBar" Width="250"  MaxWidth="760"
+							SelectionChanged="outlookBar_SelectionChanged" HorizontalAlignment="Stretch" Align="Left">
+                <telerik:RadOutlookBarItem Header="Folders" FontWeight="Bold"
+								Icon="../Images/OutlookBar/mailBig.png"
+								SmallIcon="../Images/OutlookBar/mailSmall.png"
+								Tag="Mail">
+                    <telerik:RadTreeView IsLineEnabled="True"
+									x:Name="foldersTreeView" 
+									SelectionChanged="foldersTreeView_SelectionChanged">
+                        <telerik:RadTreeViewItem Header="Personal Folders"
+										DefaultImageSrc="../Images/OutlookBar/1PersonalFolders.png"
+										IsExpanded="True">
+                            <telerik:RadTreeViewItem Header="New Message" Selected="NewMessageSelected"
+											DefaultImageSrc="../Images/MessageBlue.png" />
+                            <!--<telerik:RadTreeViewItem Header="Deleted Items"
+                                            ItemsSource="{Binding DeletedMessages}"
+                                            Selected="InboxSelected">
+                                <telerik:RadTreeViewItem.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Subject}"
+															Margin="9 0 0 0" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </telerik:RadTreeViewItem.ItemTemplate>
+                            </telerik:RadTreeViewItem>-->
+                            <telerik:RadTreeViewItem x:Name="MessagesTreeView" Header="Inbox"
+											IsExpanded="True"
+                                            ItemsSource="{Binding InboxMessages}"
+											Loaded="RadTreeViewItem_Loaded" Selected="InboxSelected">
+                                <telerik:RadTreeViewItem.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="../Images/MessageYellow.png" />
+                                            <TextBlock Text="{Binding From}"
+															Margin="9 0 0 0" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </telerik:RadTreeViewItem.ItemTemplate>
+                            </telerik:RadTreeViewItem>
+                            <telerik:RadTreeViewItem Header="Sent Items"
+                                            IsExpanded="True"
+                                            ItemsSource="{Binding OutboxMessages}"
+                                            Selected="InboxSelected">
+                                <telerik:RadTreeViewItem.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="../Images/MessageOrange.png" />
+                                            <TextBlock Text="{Binding To}"
+															Margin="9 0 0 0" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </telerik:RadTreeViewItem.ItemTemplate>
+                            </telerik:RadTreeViewItem>
+                        </telerik:RadTreeViewItem>
+                    </telerik:RadTreeView>
+                </telerik:RadOutlookBarItem>
+            </telerik:RadOutlookBar>
+            <Border BorderBrush="#FFCBCBCB" BorderThickness="1" Grid.Column="1"
+							Background="White" Margin="6 0 0 0">
+                <Border BorderBrush="White" BorderThickness="1">
+                    <Grid>
+                        <local:MailMessage x:Name="mailMessageCard" DataContext="{Binding Path=SelectedItem, ElementName=foldersTreeView}"/>
+                        <local:NewMessage x:Name="newMessageCard" />
+                    </Grid>
+                </Border>
+            </Border>
+        </Grid>
+    </Grid>
+</navigation:Page>

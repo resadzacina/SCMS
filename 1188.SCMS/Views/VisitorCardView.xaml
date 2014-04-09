@@ -1,0 +1,36 @@
+﻿<navigation:Page x:Class="_1188.SCMS.Views.VisitorCardView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="SCMS | Visitor Card" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <Grid x:Name="LayoutRoot" IsHitTestVisible="{Binding IsLoggedIn, Mode=TwoWay}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="10,6,10,0" CornerRadius="2" Background="#7DC827">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Visitor Cards" FontSize="16" FontWeight="Bold" Padding="10"></TextBlock>
+            </StackPanel>
+        </Border>
+        <sdk:DataGrid Grid.Row="1" AutoGenerateColumns="False" Height="400" HorizontalAlignment="Stretch" ItemsSource="{Binding VisitorCardList}" Margin="10,6,0,0" Name="visitorCardDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" SelectedItem="{Binding SelectedCard, Mode=TwoWay}">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn x:Name="iDColumn" Binding="{Binding Path=ID}" Header="ID" Width="SizeToHeader" Visibility="Collapsed" MinWidth="120" />
+                <sdk:DataGridTextColumn x:Name="userIDColumn" Binding="{Binding Path=User.UserName}" Header="User Name" Width="SizeToHeader" />
+                <sdk:DataGridCheckBoxColumn x:Name="isAllowedAccessColumn" Binding="{Binding Path=IsAllowedAccess}" Header="Is Allowed Access" Width="SizeToHeader" />
+                <sdk:DataGridTextColumn x:Name="startTimeColumn" Header="Start Time" Binding="{Binding Path=StartTime}" Width="SizeToHeader" MinWidth="130" />
+                <sdk:DataGridTextColumn x:Name="endTimeColumn" Header="End Time" Binding="{Binding Path=EndTime}" Width="SizeToHeader"  MinWidth="130" />
+                </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,20">
+            <Button Content="New" Height="41" Name="NewVisitorCard" Width="102"  Click="NewVisitorCard_Click"  />
+            <Button Content="Edit" Height="41" Margin="5,0,0,0" Name="EditVisitorCard" Width="102" Command="{Binding Path=EditCommand}" />
+            <Button Content="Delete" Height="41" Margin="5,0,0,0" Name="DeleteVisitorCard" Width="102" Command="{Binding Path=DeleteVisitorCardCommand}" />
+        </StackPanel>
+    </Grid>
+</navigation:Page>

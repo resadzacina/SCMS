@@ -1,0 +1,40 @@
+﻿<controls:ChildWindow x:Class="_1188.SCMS.Views.EditVisitorCardView"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="427" Height="256" 
+           Title="Visitor Card" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my1="clr-namespace:_1188.SCMS.Web" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButtonClick" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="Save" Click="OkButtonClick" Width="75" Height="23"  Command="{Binding Path=SaveChangesCommand}" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <sdk:Label Content="Visitor:" HorizontalAlignment="Left" Margin="12,12,0,149" VerticalAlignment="Center" Height="21" Width="56" />
+        <ComboBox DisplayMemberPath="Name" SelectedValuePath="UserID" ItemsSource="{Binding MemberList, Mode=OneWay}"  SelectedValue="{Binding SelectedMember, Mode=TwoWay}" Height="26" HorizontalAlignment="Left" Margin="119,12,0,144" Name="MemberComboBox" VerticalAlignment="Center" Width="160" />
+        <Grid DataContext="{Binding SelectedCard, Mode=TwoWay}" HorizontalAlignment="Left" Name="grid1" VerticalAlignment="Top" Margin="7,50,0,0" Height="134" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="99" />
+                <ColumnDefinition Width="132" />
+                <ColumnDefinition Width="160*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="38" />
+                <RowDefinition Height="11" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--<ComboBox DisplayMemberPath="Name" SelectedValuePath="UserID" ItemsSource="{Binding Path=MemberList, Mode=OneWay}"  SelectedValue="{Binding Path=SelectedMember, Mode=TwoWay}" Grid.Column="1" Height="26" HorizontalAlignment="Left" Margin="13,3,0,0" Name="MemberComboBox" VerticalAlignment="Center" Width="160" />-->
+            <sdk:Label Content="Start Time:" Grid.Row="2" HorizontalAlignment="Left" Margin="3,14,0,8" VerticalAlignment="Center" />
+            <controls:DatePicker HorizontalAlignment="Left"  Grid.Row="2" Name="startTimeDatePicker" SelectedDate="{Binding Path=StartTime, Mode=TwoWay}" VerticalAlignment="Top" Width="106" Grid.Column="1" Margin="13,11,0,0" Height="22" />
+            <Controls:TimePicker HorizontalAlignment="Left"  Grid.Row="2" Name="startTimePicker" Value="{Binding Path=StartTime, Mode=TwoWay}" VerticalAlignment="Top" Width="160" Grid.Column="2" Margin="3,12,0,0"></Controls:TimePicker>
+            <sdk:Label Content="End Time:" Grid.Row="4" HorizontalAlignment="Left" Margin="3,6,0,96" VerticalAlignment="Center" />
+            <controls:DatePicker HorizontalAlignment="Left" Grid.Row="4" Name="endTimeDatePicker" SelectedDate="{Binding Path=EndTime, Mode=TwoWay}" VerticalAlignment="Top" Width="106" Grid.Column="1" Margin="13,2,0,0" Height="22" />
+            <Controls:TimePicker HorizontalAlignment="Left"  Grid.Row="4" Name="endTimePicker" Value="{Binding Path=EndTime, Mode=TwoWay}" VerticalAlignment="Top" Width="160" Grid.Column="2" Margin="4,4,0,0"></Controls:TimePicker>
+            <CheckBox Height="16" HorizontalAlignment="Left" Grid.Row="4"  Grid.Column="1" IsChecked="{Binding Path=IsAllowedAccess, Mode=TwoWay}" Margin="14,41,0,61" Name="isAllowedAccessCheckBox" VerticalAlignment="Center" />
+            <sdk:Label Content="Is Allowed Access:" Grid.Row="4" HorizontalAlignment="Left" Margin="4,41,0,61" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+        </Grid>
+    </Grid>
+</controls:ChildWindow>

@@ -1,0 +1,32 @@
+﻿<navigation:Page
+  x:Class="_1188.SCMS.Home" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"  
+  Style="{StaticResource PageStyle}" Title="SCMS | Home">
+
+  <Grid x:Name="LayoutRoot">
+    <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" >
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="/1188.SCMS;component/Images/Plain_green_background.jpg" />
+            </ScrollViewer.Background>
+            <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
+
+        <!--<TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" 
+                           Text="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}"/>-->
+ 
+            </StackPanel>
+           
+
+        </ScrollViewer>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Image Height="150" Name="LockImage" Stretch="Fill" Source="/1188.SCMS;component/Resources/LockIconEdited.png" Visibility="{Binding IsLockVisible}" Width="170" />
+            <Image Height="214" Name="UpArrowImage" Stretch="Fill" Visibility="{Binding IsUpArrowVisible}" Width="259" Source="/1188.SCMS;component/Images/Pitch-big.png" />
+            <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" 
+                           Text="{Binding ContentText, Mode=TwoWay}"/>
+        </StackPanel>
+    </Grid>
+
+</navigation:Page>

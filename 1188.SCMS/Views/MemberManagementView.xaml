@@ -1,0 +1,46 @@
+﻿<navigation:Page x:Class="_1188.SCMS.Views.MemberManagementView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1000" d:DesignHeight="480"
+           Title="SCMS | Member Management" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:_1188.SCMS.Web" xmlns:my1="clr-namespace:_1188.SCMS.Web.Services" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <Grid x:Name="LayoutRoot" IsHitTestVisible="{Binding IsLoggedIn, Mode=TwoWay}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="10,6,10,0" CornerRadius="2" Background="#7DC827">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Member Management" FontSize="16" FontWeight="Bold" Padding="10"></TextBlock>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="5" Grid.Row="1" Background="LightGray" BorderThickness="2" Padding="5" Margin="10" >
+            <StackPanel Margin="10" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="New Member" Height="41" Name="NewMemberButton" Width="102" Click="NewMemberClick" />
+                    <Button Content="Edit Member" Height="41" Margin="5,0,0,0" Name="EditMemberButton" Width="102" Command="{Binding Path=EditCommand}" />
+                    <Button Content="Delete Member" Height="41" Margin="5,0,0,0" Name="DeleteMemberButton" Width="102" Command="{Binding Path=DeleteMemberCommand}" />
+                    <Button x:Name="reportButton" Height="50" Width="50" Margin="10" HorizontalAlignment="Left" Click="GenerateReportClick">
+                        <Image  Source="/1188.SCMS;component/Images/reportIcon.png" Visibility="Visible" Stretch="Fill" />
+                    </Button>
+                </StackPanel>
+                <sdk:DataGrid AutoGenerateColumns="False" Height="252" HorizontalAlignment="Stretch" ItemsSource="{Binding MemberList}" SelectedItem="{Binding SelectedMember, Mode=TwoWay}" Margin="0,5,0,0" Name="memberDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn x:Name="nameColumn" Binding="{Binding Path=Name}" MinWidth="150" Header="Name" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="surnameColumn" Binding="{Binding Path=Surname}" MinWidth="150" Header="Surname" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="nicknameColumn" Binding="{Binding Path=Nickname}" Header="Nickname" MinWidth="150" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="cityColumn" Binding="{Binding Path=City}" Header="City" MinWidth="100" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="genderColumn" Binding="{Binding Path=Gender}" Header="Gender"  MinWidth="100" Width="SizeToHeader" />
+                        <sdk:DataGridTextColumn x:Name="nationalityColumn" Binding="{Binding Path=Nationality}" Header="Nationality" MinWidth="100" Width="SizeToHeader" />
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+            </StackPanel>
+        </Border>
+
+
+
+    </Grid>
+</navigation:Page>
